@@ -1,0 +1,22 @@
+extends layout.pug
+
+block searchType
+    div(class="formContainer")
+        H1 Search a restaurant
+
+        form(action='/restaurants/typedRestaurants', method='POST' style="margin: auto")
+            span
+            | Type de cuisine: 
+
+            select(name="cuisine")
+                each cuisine in typeCuisine
+                    option(value=cuisine ) #{cuisine}
+            br
+            span
+            | Quartier: 
+
+            select(name="borough")
+                each b in borough
+                    option(value=b) #{b}
+            br
+            input(type='submit', value='Rechercher')
